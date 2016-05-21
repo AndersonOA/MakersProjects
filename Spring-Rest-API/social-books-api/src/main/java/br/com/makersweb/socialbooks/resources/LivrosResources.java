@@ -66,4 +66,11 @@ public class LivrosResources {
 		
 		return ResponseEntity.created(uri).build();
 	}
+	
+	@RequestMapping(value = "/{id}/comentarios", method = RequestMethod.GET)
+	public ResponseEntity<List<Comentarios>> listarComentarios(@PathVariable("id") Long livroId) {
+		List<Comentarios> comentarios = livrosServices.listarComentarios(livroId);
+		
+		return ResponseEntity.status(HttpStatus.OK).body(comentarios);
+	}
 }
