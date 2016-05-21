@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import br.com.makersweb.socialbooks.domain.Comentarios;
 import br.com.makersweb.socialbooks.domain.Livro;
 import br.com.makersweb.socialbooks.services.LivrosService;
 
@@ -53,5 +54,16 @@ public class LivrosResources {
 		livro.setId(id);
 		livrosServices.atualizar(livro);
 		return ResponseEntity.noContent().build();
+	}
+	
+	@RequestMapping(value = "/{id}/comentarios", method = RequestMethod.POST)
+	public ResponseEntity<Void> addComentario(@PathVariable("id") Long livroId, 
+			@RequestBody Comentarios comentarios) {
+		
+		comentarios = livrosServices.salvarComentarios(livroId, comentarios);
+		
+		URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUri();
+		
+		return ResponseEntity.created(uri).build();
 	}
 }

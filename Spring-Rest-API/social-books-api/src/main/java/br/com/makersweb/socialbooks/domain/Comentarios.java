@@ -2,12 +2,34 @@ package br.com.makersweb.socialbooks.domain;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+@Entity
 public class Comentarios {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String texto;
+	
 	private String usuario;
+	
 	private Date data;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "LIVRO_ID")
+	@JsonIgnore
+	private Livro livro;
 	
 	/**
 	 * @return the id
@@ -57,5 +79,16 @@ public class Comentarios {
 	public void setData(Date data) {
 		this.data = data;
 	}
-
+	/**
+	 * @return the livro
+	 */
+	public Livro getLivro() {
+		return livro;
+	}
+	/**
+	 * @param livro the livro to set
+	 */
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
 }
