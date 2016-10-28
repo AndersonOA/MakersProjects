@@ -33,6 +33,8 @@
 				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
 		</mvc:message-converters>
 	</mvc:annotation-driven>
+	
+	<mvc:resources mapping="/_cdn/**" location="/_cdn/" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -43,6 +45,6 @@
 	<mvc:resources mapping="/**" location="/jsp/" />
 
 	<import resource="makersweb-spring-datasource.xml" />
-<!-- 	<import resource="classpath:helpeo-services-context.xml" /> -->
+	<!-- <import resource="classpath:helpeo-services-context.xml" /> -->
 
 </beans>
