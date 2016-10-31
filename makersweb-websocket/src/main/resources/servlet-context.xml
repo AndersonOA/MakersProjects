@@ -44,7 +44,7 @@
 
 	<mvc:resources mapping="/**" location="/jsp/" />
 
-	<import resource="makersweb-spring-datasource.xml" />
-	<!-- <import resource="classpath:helpeo-services-context.xml" /> -->
+	<import resource="classpath:makersweb-spring-datasource.xml" />
+	<import resource="classpath:makersweb-services-context.xml" />
 
 </beans>

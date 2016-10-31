@@ -21,6 +21,9 @@
 		<maven.compiler.version>3.5.1</maven.compiler.version>
 		<junit.version>4.12</junit.version>
 		<jta.version>1.1</jta.version>
+		<org.aspectj.version>1.8.5</org.aspectj.version>
+		<org.aspectjweaver.version>1.8.3</org.aspectjweaver.version>
+		<org.apache.commons.version>3.1</org.apache.commons.version>
 		<!-- Web -->
 		<jsp.version>2.3.1</jsp.version>
 		<jstl.version>1.2</jstl.version>
@@ -121,6 +124,18 @@
 			<artifactId>javax.websocket-api</artifactId>
 			<version>1.1</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${org.aspectj.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${org.aspectjweaver.version}</version>
+		</dependency>
 
 		<!-- Hibernate -->
 		<dependency>
@@ -183,6 +198,14 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${org.slf4j.version}</version>
 		</dependency>
+		
+		<!-- COMMONS LANG3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${org.apache.commons.version}</version>
+		</dependency>
+		
 
 		<!-- Jackson -->
 		<dependency>
