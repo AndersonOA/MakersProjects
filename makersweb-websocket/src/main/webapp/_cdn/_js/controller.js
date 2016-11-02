@@ -7,11 +7,13 @@ $(function() {
 	$('form').not('.ajax_off').submit(function() {
 		var form = $(this);
 		var callback = form.find('input[name="callback"]').val();
+		var callback_action = form.find('input[name="callback_action"]').val();
+		var typeForm = (callback_action === 'update' ? 'PUT' : 'POST');
 		
 		$.ajax({
 			url : sAction + callback,
 			data : JSON.stringify(form.serializeObject()),
-			type : "POST",
+			type : typeForm,
 			contentType : "application/json",
 			beforeSend : function() {
 				form.find('.form_load').fadeIn('slow');
